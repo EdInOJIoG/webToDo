@@ -28,4 +28,9 @@ public class TodoService {
         todo.setCompleted(!todo.isCompleted());
         return TodoModel.toModel(todoRepo.save(todo));
     }
+
+    public Long delete(Long id) {
+        todoRepo.deleteById(id);
+        return id;
+    }
 }

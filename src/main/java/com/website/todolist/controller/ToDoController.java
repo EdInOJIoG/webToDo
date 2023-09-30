@@ -24,9 +24,18 @@ public class ToDoController {
     }
 
     @PutMapping
-    public ResponseEntity createTodo(@RequestParam Long id) {
+    public ResponseEntity completeTodo(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(todoService.completeTodo(id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Произошла ошибка");
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteTodo(@RequestParam Long id) {
+        try {
+            return ResponseEntity.ok(todoService.delete(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Произошла ошибка");
         }

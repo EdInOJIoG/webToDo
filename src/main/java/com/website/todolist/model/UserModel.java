@@ -12,8 +12,6 @@ public class UserModel {
 
     private List<TodoModel> todos;
 
-
-
     public static UserModel toModel(UserEntity entity) {
         UserModel model = new UserModel();
         model.setId(entity.getId());
